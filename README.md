@@ -1,2 +1,0 @@
-# -
-fordflhs32socialdtudies
