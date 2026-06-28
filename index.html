@@ -181,9 +181,9 @@
     </header>
 
     <div class="level-tabs">
-        <button class="tab-btn active" onclick="switchTab('lvl1')">1. 기초</button>
-        <button class="tab-btn" onclick="switchTab('lvl2')">2. 하</button>
-        <button class="tab-btn" onclick="switchTab('lvl3')">3. 중</button>
+        <button class="tab-btn active" onclick="switchTab(event, 'lvl1')">1. 기초</button>
+        <button class="tab-btn" onclick="switchTab(event, 'lvl2')">2. 하</button>
+        <button class="tab-btn" onclick="switchTab(event, 'lvl3')">3. 중</button>
     </div>
 
     <div id="lvl1" class="quiz-section active">
@@ -203,7 +203,6 @@
 </div>
 
 <script>
-    // 테스트용 1단계 15문항 완벽 정복 데이터
     const quizData = {
         lvl1: [
             { q: "오랜 기간 비가 내리지 않아 물이 부족해지는 진행이 느린 기후 재해는?", a: ["가뭄"], t: "자연재해", h: "초성 힌트: ㄱㅁ" },
@@ -224,18 +223,19 @@
         ]
     };
 
-    // 탭 전환 함수
-    function switchTab(levelId) {
+    // 탭 전환 함수 오류 수정 완료
+    function switchTab(e, levelId) {
         document.querySelectorAll('.quiz-section').forEach(sec => sec.classList.remove('active'));
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
         
         document.getElementById(levelId).classList.add('active');
-        event.target.classList.add('active');
+        e.currentTarget.classList.add('active');
     }
 
-    // 퀴즈 화면에 그려주는 함수
+    // 퀴즈 렌더링 함수
     function initQuiz() {
         const container = document.getElementById('container-lvl1');
+        container.innerHTML = ""; // 초기화
         quizData.lvl1.forEach((item, index) => {
             const card = document.createElement('div');
             card.className = 'card';
@@ -252,7 +252,7 @@
         });
     }
 
-    // 정답 체크 함수
+    // 채점 함수
     function checkAns(idx) {
         const userAns = document.getElementById(`ans-${idx}`).value.trim();
         const feedBox = document.getElementById(`feed-${idx}`);
@@ -268,7 +268,9 @@
     }
 
     // 실행
-    initQuiz();
+    window.onload = function() {
+        initQuiz();
+    };
 </script>
 </body>
 </html>
