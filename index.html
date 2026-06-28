@@ -184,7 +184,6 @@
         <p>기초부터 심화까지 완벽 단계별 학습 & 취약점 처방 오답노트</p>
     </header>
 
-    <!-- 상단 탭 레이아웃 (2줄 구성) -->
     <div class="level-tabs">
         <button class="tab-btn active" onclick="switchTab(event, 'lvl1')">1. 기초 (15문항)</button>
         <button class="tab-btn" onclick="switchTab(event, 'lvl2')">2. 하 (15문항)</button>
@@ -196,7 +195,6 @@
         <button class="tab-btn" onclick="switchTab(event, 'lvl6')">6. 최고존엄 (15문항)</button>
     </div>
 
-    <!-- 각 레벨별 컨테이너 -->
     <div id="lvl1" class="quiz-section active">
         <div class="score-board">1단계: 핵심 용어 뼈대 잡기</div>
         <div id="container-lvl1"></div>
@@ -229,7 +227,6 @@
 </div>
 
 <script>
-    // 1단계부터 6단계까지 총 90문항 완벽 정복 DB
     const quizData = {
         lvl1: [
             { q: "오랜 기간 비가 내리지 않아 물이 부족해지는 진행이 느린 기후 재해는?", a: ["가뭄"], t: "자연재해", h: "초성 힌트: ㄱㅁ" },
@@ -261,7 +258,7 @@
             { q: "도심의 높은 지대와 임대료를 감당하지 못해 주택이나 학교가 주변으로 밀려나는 현상은?", a: ["이심현상", "이심 현상"], t: "도시 내부 구조", h: "초성 힌트: ㅇㅅㅎㅅ" },
             { q: "도심에서 야간 인구는 급감하고 주간 인구만 많아져 주야간 인구 차이가 커지는 현상은?", a: ["인구공동화", "인구 공동화"], t: "도시 내부 구조", h: "초성 힌트: ㅇㄱㄱㄷㅎ" },
             { q: "도심의 기능을 보조하기 위해 교통이 편리한 외곽 지역에 형성되는 도시 내부 구조는?", a: ["부도심"], t: "도시 내부 구조", h: "초성 힌트: ㅂㄷㅅ" },
-            { q: "도시 구조에서 도심과 주변 지역 사이에 위치하여 상업과 주거 기능이 섞여 있는 지대는?", a: ["중간지역", "중간 지역"], t: "도시 내부 구조", h: "초성 힌트: ㅈㄱㅈㅇ" },
+            { q: "도시 구조에서 도심 and 주변 지역 사이에 위치하여 상업과 주거 기능이 섞여 있는 지대는?", a: ["중간지역", "중간 지역"], t: "도시 내부 구조", h: "초성 힌트: ㅈㄱㅈㅇ" },
             { q: "도시 주변부에 위치하여 쾌적한 주거 환경을 제공하며 도심으로 출퇴근하는 인구가 많은 곳은?", a: ["주변지역", "주변 지역"], t: "도시 내부 구조", h: "초성 힌트: ㅈㅂㅈㅇ" },
             { q: "도시의 무질서한 팽창을 막고 환경을 보존하기 위해 설정한 개발 제한 구역의 영문 명칭은?", a: ["그린벨트"], t: "도시 내부 구조", h: "초성 힌트: ㄱㄹㅂㅌ" }
         ],
@@ -279,7 +276,7 @@
             { q: "서구의 기독교적 세계관이 자연을 정복 대상으로 바라보게 만든 근원이라고 비판한 학자는?", a: ["화이트"], t: "인간과 자연의 관계", h: "초성 힌트: ㅎㅇㅌ" },
             { q: "전통적인 문자나 말 대신 기호, 소리, 시각적 이미지 등을 결합하여 소통하는 새로운 전파 매체는?", a: ["뉴미디어", "디지털미디어"], t: "문화 변동 요인", h: "초성 힌트: ㄴㅁㄷㅇ" },
             { q: "한 사회의 지배적인 문화와 달리, 특정 집단 구성원들만 공유하는 독특한 문화 스타일은?", a: ["하위문화", "하위 문화"], t: "문화의 다양성", h: "초성 힌트: ㅎㅇㅁㅎ" },
-            { q: "사회의 주류 문화에 저항하고 이를 변혁하려는 성격을 띤 하위문화를 뜻하는 용어는?", a: ["반문화", "반문화"], t: "문화의 다양성", h: "초성 힌트: ㅂㅁㅎ" },
+            { q: "사회의 주류 문화에 저항하고 이를 변혁하려는 성격을 띤 하위문화를 뜻하는 용어는?", a: ["반문화"], t: "문화의 다양성", h: "초성 힌트: ㅂㅁㅎ" },
             { q: "물질문화의 변동 속도를 비물질문화(제도, 의식)가 따라가지 못해 발생하는 사회적 부조화는?", a: ["문화지체", "문화 지체"], t: "문화 변동의 문제점", h: "초성 힌트: ㅁㅎㅈㅊ" }
         ],
         lvl4: [
@@ -335,7 +332,6 @@
         ]
     };
 
-    // 탭 전환 함수 (오류 없음 보장)
     function switchTab(e, levelId) {
         document.querySelectorAll('.quiz-section').forEach(sec => sec.classList.remove('active'));
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
@@ -344,13 +340,12 @@
         e.currentTarget.classList.add('active');
     }
 
-    // 6개 레벨 전체를 화면에 렌더링하는 함수
     function initAllQuizzes() {
         Object.keys(quizData).forEach(level => {
             const container = document.getElementById(`container-${level}`);
             if (!container) return;
             
-            container.innerHTML = ""; // 기존 내용 초기화
+            container.innerHTML = "";
             
             quizData[level].forEach((item, index) => {
                 const card = document.createElement('div');
@@ -369,13 +364,11 @@
         });
     }
 
-    // 채점 및 피드백 처리 함수
     function checkAns(level, idx) {
         const userAns = document.getElementById(`ans-${level}-${idx}`).value.trim();
         const feedBox = document.getElementById(`feed-${level}-${idx}`);
         const data = quizData[level][idx];
 
-        // 대소문자나 띄어쓰기 오차 줄이기 위해 정답 리스트 체크
         if (data.a.includes(userAns)) {
             feedBox.className = "feedback correct";
             feedBox.innerHTML = `🎉 정답입니다! <div class="analysis-box"><b>해설/힌트:</b> ${data.h}</div>`;
@@ -385,7 +378,6 @@
         }
     }
 
-    // 페이지 로드 시 전체 구동
     window.onload = function() {
         initAllQuizzes();
     };
